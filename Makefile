@@ -1,9 +1,16 @@
+#                                                                              
+#  Filename: Makefile                                                           
+#  Date: April 29 2020                                                           
+#  Author: Ism Khadka                                                          
+#  Email: ixk180000@utdallas.edu                                               
+#  Course: CS 3377.501                                                         
+#  Version: 1.0                                                                
+#  Copyright 2020, All Rights Reserved                                         
+#                                                                              
+# Description:                                                                
+#                                                                            
+#                                                                              
 #
-# UTD CS3377 CDK Example
-# Dr. Perkins
-# stephen.perkins@utdallas.edu
-#
-
 CXX = g++
 CXXFLAGS =
 CPPFLAGS = -Wall -g -I/scratch/perkins/include
@@ -28,3 +35,14 @@ clean:
 $(EXECFILE): $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS) $(LDLIBS)
 
+backup: clean
+	@mkdir -p ~/backups; chmod 700 ~/backups
+	@$(eval CURDIRNAME := $(shell basename pwd))
+	@$(eval MKBKUPNAME := ~/backups/$(PROJECTNAME)-$(shell date +'%Y.%m.%d-%H:%M:%S').tar.gz)
+	@echo
+	@echo Writing Backup file to: $(MKBKUPNAME)
+	@echo
+	@-tar zcfv $(MKBKUPNAME) ../$(CURDIRNAME)
+	@chmod 600 $(MKBKUPNAME)
+	@echo
+	@echo Done!
