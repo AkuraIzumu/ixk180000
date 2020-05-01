@@ -1,4 +1,16 @@
-
+/*                                                                              
+ *  Filename: bin.cc                                                          
+ *  Date: April 30 2020                                                           
+ *  Author: Ism Khadka                                                          
+ *  Email: ixk180000@utdallas.edu                                               
+ *  Course: CS 3377.501                                                         
+ *  Version: 1.0                                                                
+ *  Copyright 2020, All Rights Reserved                                         
+ *                                                                              
+ *  Description:                                                                
+ *                   Reads the binary file                                                           
+ *                                                                              
+ */
 #include <sstream>
 #include <iostream>
 #include <stdint.h>
